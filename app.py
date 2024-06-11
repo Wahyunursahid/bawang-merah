@@ -115,4 +115,4 @@ if submit_button:
         error_label.empty()
         expert_system.knowledge_base = selected_symptoms
         diagnosis = expert_system.diagnose()
-        result_label.success(f"Diagnosis penyakit: {diagnosis}")
+        result_label.danger(f"Diagnosis penyakit: {diagnosis}")
