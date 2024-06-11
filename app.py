@@ -39,7 +39,7 @@ st.markdown(
         color: #333333; /* Warna font gelap */
     }
     .error-message {
-        color: black;
+        color: red;
         font-weight: bold;
     }
     </style>
@@ -74,10 +74,7 @@ class ForwardChainingExpertSystem:
             if all(symptom in self.knowledge_base for symptom in symptoms):
                 return disease
         return 'Penyakit tidak terdeteksi'
-        
-# Menampilkan header dan subheader
-st.markdown('<div class="header">Sistem Pakar Diagnosa Penyakit Tanaman</div>', unsafe_allow_html=True)
-st.markdown('<div class="subheader">Pilih tepat 2 gejala untuk mendapatkan diagnosa</div>', unsafe_allow_html=True)
+
 # Inisialisasi sistem pakar
 expert_system = ForwardChainingExpertSystem()
 
@@ -93,6 +90,10 @@ symptoms = [
     'Batang menghitam',
     'Batang lembek'
 ]
+
+# Menampilkan header dan subheader
+st.markdown('<div class="header">Sistem Pakar Diagnosa Penyakit Tanaman</div>', unsafe_allow_html=True)
+st.markdown('<div class="subheader">Pilih tepat 2 gejala untuk mendapatkan diagnosa</div>', unsafe_allow_html=True)
 
 # Membuat widget checkbox untuk masing-masing gejala
 symptom_checkboxes = [st.checkbox(symptom) for symptom in symptoms]
@@ -115,4 +116,4 @@ if submit_button:
         error_label.empty()
         expert_system.knowledge_base = selected_symptoms
         diagnosis = expert_system.diagnose()
-        result_label.danger(f"Diagnosis penyakit: {diagnosis}")
+        result_label.success(f"Diagnosis penyakit: {diagnosis}")
