@@ -39,7 +39,7 @@ st.markdown(
         color: #333333; /* Warna font gelap */
     }
     .error-message {
-        color: red;
+        color: black;
         font-weight: bold;
     }
     </style>
