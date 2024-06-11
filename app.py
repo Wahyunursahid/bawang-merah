@@ -72,7 +72,7 @@ class ForwardChainingExpertSystem:
         for disease, symptoms in self.rules.items():
             if all(symptom in self.knowledge_base for symptom in symptoms):
                 return disease
-        return 'Penyakit tidak terdeteksi'
+        return 'Penyakit tidak terdeteksi , segera konsultasi lebih lanjut'
 
 # Inisialisasi sistem pakar
 expert_system = ForwardChainingExpertSystem()
