@@ -4,10 +4,9 @@ import streamlit as st
 st.markdown(
     """
     <style>
-    .main {
-        background-color: #ffffff; /* Warna latar belakang putih */
-        padding: 20px;
-        border-radius: 10px;
+    body {
+        color: #333333; /* Warna font gelap */
+        background-color: #f4f4f4; /* Warna latar belakang abu-abu muda */
     }
     .stButton > button {
         background-color: #4CAF50;
