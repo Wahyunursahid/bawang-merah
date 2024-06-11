@@ -1,17 +1,17 @@
 import streamlit as st
 
-# Menambahkan CSS khusus
+# Menambahkan CSS khusus untuk kontras yang lebih baik
 st.markdown(
     """
     <style>
     .main {
-        background-color: #f5f5f5;
+        background-color: #ffffff; /* Warna latar belakang putih */
         padding: 20px;
         border-radius: 10px;
     }
     .stButton > button {
         background-color: #4CAF50;
-        color: green;
+        color: white;
         padding: 10px 24px;
         font-size: 16px;
         border: none;
@@ -24,15 +24,23 @@ st.markdown(
     .header {
         font-size: 36px;
         font-weight: bold;
-        color: #333;
+        color: #333333; /* Warna font gelap */
         text-align: center;
         padding: 20px 0;
     }
     .subheader {
         font-size: 24px;
-        color: #555;
+        color: #555555; /* Warna font lebih gelap */
         text-align: center;
         padding-bottom: 20px;
+    }
+    .stCheckbox > label {
+        font-size: 16px;
+        color: #333333; /* Warna font gelap */
+    }
+    .error-message {
+        color: red;
+        font-weight: bold;
     }
     </style>
     """,
@@ -66,7 +74,10 @@ class ForwardChainingExpertSystem:
             if all(symptom in self.knowledge_base for symptom in symptoms):
                 return disease
         return 'Penyakit tidak terdeteksi'
-
+        
+# Menampilkan header dan subheader
+st.markdown('<div class="header">Sistem Pakar Diagnosa Penyakit Tanaman</div>', unsafe_allow_html=True)
+st.markdown('<div class="subheader">Pilih tepat 2 gejala untuk mendapatkan diagnosa</div>', unsafe_allow_html=True)
 # Inisialisasi sistem pakar
 expert_system = ForwardChainingExpertSystem()
 
@@ -99,13 +110,9 @@ error_label = st.empty()
 if submit_button:
     selected_symptoms = [symptoms[i] for i in range(len(symptom_checkboxes)) if symptom_checkboxes[i]]
     if len(selected_symptoms) != 2:
-        error_label.error("Harap pilih tepat 2 gejala.")
+        error_label.error("Harap pilih tepat 2 gejala.", icon="🚨")
     else:
         error_label.empty()
         expert_system.knowledge_base = selected_symptoms
         diagnosis = expert_system.diagnose()
         result_label.success(f"Diagnosis penyakit: {diagnosis}")
-
-# Menampilkan header dan subheader
-st.markdown('<div class="header">Sistem Pakar Diagnosa Penyakit Tanaman</div>', unsafe_allow_html=True)
-st.markdown('<div class="subheader">Pilih tepat 2 gejala untuk mendapatkan diagnosa</div>', unsafe_allow_html=True)
