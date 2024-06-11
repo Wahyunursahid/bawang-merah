@@ -6,7 +6,7 @@ st.markdown(
     <style>
     body {
         color: #333333; /* Warna font gelap */
-        background-color: #C0C0C0; /* Warna latar belakang abu-abu muda */
+        background-color: white; /* Warna latar belakang abu-abu muda */
     }
     .stButton > button {
         background-color: #4CAF50;
