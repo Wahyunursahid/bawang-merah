@@ -57,7 +57,7 @@ st.markdown(
 class ForwardChainingExpertSystem:
     def __init__(self):
         self.rules = {
-            'Akar Busuk': ['Akar hitam', 'Tanaman layu', 'Pertumbuhan lambat'],
+            'Akar Busuk': ['Akar hitam', 'Tanaman layu'],
             'Daun Kuning': ['Daun menguning', 'Bercak coklat pada daun'],
             'Bercak Daun': ['Bercak hitam pada daun', 'Daun rontok'],
             'Busuk Batang': ['Batang menghitam', 'Batang lembek'],
